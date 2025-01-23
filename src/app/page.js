@@ -1,4 +1,3 @@
-import { Navbar } from "@/Components/Navbar";
 import axios from "axios";
 import Link from "next/link";
 
@@ -6,7 +5,6 @@ export default async function Home() {
   const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
   return (
     <div className="container mx-auto">
-      <Navbar/>
       <div className="text-2xl text-center font-bold mt-10"> Blogs</div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10 mx-2">
         {res.data.map((item, index) => (
