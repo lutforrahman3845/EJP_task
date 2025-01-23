@@ -1,6 +1,14 @@
 import Link from "next/link";
+import {
+  RegisterLink,
+  LoginLink,
+  LogoutLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-export const Navbar = () => {
+export const Navbar = async () => {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
   return (
     <div className="bg-gray-800 text-white p-4">
       <nav className="flex justify-between items-center">
@@ -13,9 +21,22 @@ export const Navbar = () => {
             <li className="py-1 px-2 border rounded font-medium">
               <Link href={"/profile"}>Profile</Link>
             </li>
-            <li className="py-1 px-2 border rounded font-medium">
-              <Link href={"/login"}>Log in</Link>
-            </li>
+            {user ? (
+              <>
+                <li className="py-1 px-2 border rounded font-medium">
+                  <LogoutLink>Log out</LogoutLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="py-1 px-2 border rounded font-medium">
+                  <LoginLink>Log in</LoginLink>
+                </li>
+                <li className="py-1 px-2 border rounded font-medium">
+                  <RegisterLink>Register</RegisterLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </nav>
