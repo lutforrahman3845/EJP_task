@@ -14,26 +14,32 @@ export const Navbar = async () => {
       <nav className="flex justify-between items-center">
         <div className="text-lg font-semibold ">Logo</div>
         <ul className="flex space-x-4 ">
-          <li className="py-1 px-2 border rounded font-medium">
-            <Link href={"/"}>Home</Link>
-          </li>
-          <li className="py-1 px-2 border rounded font-medium">
-            <Link href={"/profile"}>Profile</Link>
-          </li>
+          <Link href={"/"} className="py-1 px-2 border rounded font-medium">
+            Home
+          </Link>
+
+          <Link
+            href={"/profile"}
+            className="py-1 px-2 border rounded font-medium"
+          >
+            Profile
+          </Link>
+
           {user ? (
             <>
-              <li className="py-1 px-2 border rounded font-medium">
-                <LogoutLink>Log out</LogoutLink>
-              </li>
+              <LogoutLink className="py-1 px-2 border rounded font-medium">
+                Log out
+              </LogoutLink>
             </>
           ) : (
             <>
-              <li className="py-1 px-2 border rounded font-medium">
-                <LoginLink>Log in</LoginLink>
-              </li>
-              <li className="py-1 px-2 border rounded font-medium">
-                <RegisterLink>Register</RegisterLink>
-              </li>
+              <LoginLink className="py-1 px-2 border rounded font-medium">
+                Log in
+              </LoginLink>
+
+              <RegisterLink className="py-1 px-2 border rounded font-medium">
+                Register
+              </RegisterLink>
             </>
           )}
         </ul>
