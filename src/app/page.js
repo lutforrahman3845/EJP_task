@@ -14,7 +14,7 @@ export default async function Home() {
           >
             <div className="text-lg font-bold">{item.title}</div>
             <div className="flex justify-end">
-              <Link href={`/blog/ ${item.id}`}>
+              <Link href={`/blog/${item.id}`}>
                 <p className="text-indigo-700 font-semibold underline mt-5">
                   {" "}
                   Visit the blog
