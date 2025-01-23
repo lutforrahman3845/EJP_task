@@ -6,7 +6,7 @@ export default async function Home() {
   return (
     <div className="container mx-auto">
       <div className="text-2xl text-center font-bold mt-10"> Blogs</div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10 mx-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10 mx-2">
         {res.data.map((item, index) => (
           <div
             key={index}
